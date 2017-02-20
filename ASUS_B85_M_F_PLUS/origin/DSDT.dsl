@@ -53,21 +53,21 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
     External (_PR_.CFGD, FieldUnitObj)
     External (_PR_.CPU0._PPC, IntObj)
     External (_PR_.CPU0._PSS, PkgObj)
-    External (_SB_.IAOE.ECTM, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IAOE.FFSE, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IAOE.IBT1, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IAOE.ITMR, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IAOE.PTSL, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IAOE.WKRS, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IETM, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IFFS.FFSS, UnknownObj)    // Warning: Unknown object
-    External (_SB_.PCCD, UnknownObj)    // Warning: Unknown object
-    External (_SB_.PCCD.PENB, UnknownObj)    // Warning: Unknown object
+    External (_SB_.IAOE.ECTM)    // Warning: Unknown object
+    External (_SB_.IAOE.FFSE)    // Warning: Unknown object
+    External (_SB_.IAOE.IBT1)    // Warning: Unknown object
+    External (_SB_.IAOE.ITMR)    // Warning: Unknown object
+    External (_SB_.IAOE.PTSL)    // Warning: Unknown object
+    External (_SB_.IAOE.WKRS)    // Warning: Unknown object
+    External (_SB_.IETM)    // Warning: Unknown object
+    External (_SB_.IFFS.FFSS)    // Warning: Unknown object
+    External (_SB_.PCCD)    // Warning: Unknown object
+    External (_SB_.PCCD.PENB)    // Warning: Unknown object
     External (_SB_.PCI0.B0D3.ABAR, FieldUnitObj)
     External (_SB_.PCI0.B0D3.BARA, IntObj)
     External (_SB_.PCI0.GFX0.CLID, FieldUnitObj)
     External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
-    External (_SB_.PCI0.GFX0.DD1F, UnknownObj)
+    External (_SB_.PCI0.GFX0.DD1F)
     External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.GFX0.GSSE, FieldUnitObj)
     External (_SB_.PCI0.GFX0.IUEH, MethodObj)    // 1 Arguments
@@ -77,17 +77,13 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
     External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.PAUD.PUAM, MethodObj)    // Warning: Unknown method, guessing 0 arguments
-    External (_SB_.PCI0.PEG0, UnknownObj)
     External (_SB_.PCI0.PEG0.HPME, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.PEG0.PEGP, UnknownObj)
     External (_SB_.PCI0.PEG0.PEGP.EPON, MethodObj)    // Warning: Unknown method, guessing 0 arguments
     External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // Imported: 2 Arguments
-    External (_SB_.PCI0.PEG1, UnknownObj)
     External (_SB_.PCI0.PEG1.HPME, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.PEG2, UnknownObj)
     External (_SB_.PCI0.PEG2.HPME, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.RP05.PEGP.EPON, MethodObj)    // Warning: Unknown method, guessing 0 arguments
-    External (_SB_.PCI0.SAT0.SDSM, MethodObj)    // Imported: 4 Arguments
+    External (_SB_.PCI0.SATA.SDSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.XHC_.DUAM, MethodObj)    // Warning: Unknown method, guessing 0 arguments
     External (_SB_.PCI0.XHC_.RHUB.TPLD, MethodObj)    // Imported: 2 Arguments
     External (_SB_.TPM_.PTS_, MethodObj)    // Warning: Unknown method, guessing 1 arguments
@@ -2855,31 +2851,31 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                             0x0000,             // Range Minimum
                             0x0000,             // Range Maximum
                             0x00,               // Alignment
-                            0x00,               // Length
+                            0x01,               // Length
                             _Y14)
                         IO (Decode16,
                             0x0000,             // Range Minimum
                             0x0000,             // Range Maximum
                             0x00,               // Alignment
-                            0x00,               // Length
+                            0x01,               // Length
                             _Y15)
                         IO (Decode16,
                             0x0000,             // Range Minimum
                             0x0000,             // Range Maximum
                             0x00,               // Alignment
-                            0x00,               // Length
+                            0x01,               // Length
                             _Y16)
                         IO (Decode16,
                             0x0000,             // Range Minimum
                             0x0000,             // Range Maximum
                             0x00,               // Alignment
-                            0x00,               // Length
+                            0x01,               // Length
                             _Y17)
                         IO (Decode16,
                             0x0000,             // Range Minimum
                             0x0000,             // Range Maximum
                             0x00,               // Alignment
-                            0x00,               // Length
+                            0x01,               // Length
                             )
                     })
                     Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
@@ -2950,7 +2946,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                     Mutex (MUT0, 0x00)
                     Method (ENFG, 1, NotSerialized)
                     {
-                        Acquire (MUT0, 0x0FFF)
+                        Acquire (MUT0, 0xFFFF)
                         Store (0x87, INDX)
                         Store (0x87, INDX)
                         Store (Arg0, LDN)
@@ -3127,7 +3123,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                             0x0000,             // Range Minimum
                             0x0000,             // Range Maximum
                             0x01,               // Alignment
-                            0x00,               // Length
+                            0x01,               // Length
                             _Y1A)
                         IRQNoFlags (_Y18)
                             {}
@@ -3145,13 +3141,13 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                             0x0000,             // Range Minimum
                             0x0000,             // Range Maximum
                             0x01,               // Alignment
-                            0x00,               // Length
+                            0x01,               // Length
                             _Y1D)
                         IO (Decode16,
                             0x0000,             // Range Minimum
                             0x0000,             // Range Maximum
                             0x01,               // Alignment
-                            0x00,               // Length
+                            0x01,               // Length
                             _Y1E)
                         IRQNoFlags (_Y1B)
                             {}
@@ -3822,6 +3818,14 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 {
                     Return (GPRW (0x08, 0x04))
                 }
+                Method (_DSM, 4, NotSerialized)
+                {
+                    Store (Package (0x02) {
+                        "compatible", Buffer () {"pci8086,8c44"}
+                    }, Local0)
+                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                    Return (Local0)
+                }
             }
 
             Device (RP01)
@@ -3899,17 +3903,17 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 Name (RPAV, Zero)
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
-                        Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
+                        Store (ToInteger (Arg0), T_0)
+                        If (LEqual (T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
-                                Store (ToInteger (Arg2), _T_1)
-                                If (LEqual (_T_1, Zero))
+                                Store (ToInteger (Arg2), T_1)
+                                If (LEqual (T_1, Zero))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -3931,7 +3935,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                         Return (Zero)
                                     }
                                 }
-                                ElseIf (LEqual (_T_1, 0x04))
+                                ElseIf (LEqual (T_1, 0x04))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -3953,7 +3957,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                         }
                                     }
                                 }
-                                ElseIf (LEqual (_T_1, 0x06))
+                                ElseIf (LEqual (T_1, 0x06))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -4189,17 +4193,17 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 Name (RPAV, Zero)
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
-                        Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
+                        Store (ToInteger (Arg0), T_0)
+                        If (LEqual (T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
-                                Store (ToInteger (Arg2), _T_1)
-                                If (LEqual (_T_1, Zero))
+                                Store (ToInteger (Arg2), T_1)
+                                If (LEqual (T_1, Zero))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -4221,7 +4225,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                         Return (Zero)
                                     }
                                 }
-                                ElseIf (LEqual (_T_1, 0x04))
+                                ElseIf (LEqual (T_1, 0x04))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -4243,7 +4247,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                         }
                                     }
                                 }
-                                ElseIf (LEqual (_T_1, 0x06))
+                                ElseIf (LEqual (T_1, 0x06))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -4479,17 +4483,17 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 Name (RPAV, Zero)
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
-                    Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     While (One)
                     {
-                        Store (ToInteger (Arg0), _T_0)
-                        If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
+                        Store (ToInteger (Arg0), T_0)
+                        If (LEqual (T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
                         {
                             While (One)
                             {
-                                Store (ToInteger (Arg2), _T_1)
-                                If (LEqual (_T_1, Zero))
+                                Store (ToInteger (Arg2), T_1)
+                                If (LEqual (T_1, Zero))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -4511,7 +4515,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                         Return (Zero)
                                     }
                                 }
-                                ElseIf (LEqual (_T_1, 0x04))
+                                ElseIf (LEqual (T_1, 0x04))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -4533,7 +4537,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                         }
                                     }
                                 }
-                                ElseIf (LEqual (_T_1, 0x06))
+                                ElseIf (LEqual (T_1, 0x06))
                                 {
                                     If (LEqual (Arg1, 0x02))
                                     {
@@ -4696,6 +4700,10 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
             Device (B0D4)
             {
                 Name (_ADR, 0x00040000)  // _ADR: Address
+            }
+            Device (MCHC)
+            {
+                Name (_ADR, Zero)
             }
         }
 
@@ -5359,13 +5367,13 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0)
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -5382,7 +5390,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                             })
                                         }
                                     }
-                                    ElseIf (LEqual (_T_0, One))
+                                    ElseIf (LEqual (T_0, One))
                                     {
                                         If (LEqual (SDGV, 0xFF))
                                         {
@@ -5393,7 +5401,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                             Return (One)
                                         }
                                     }
-                                    ElseIf (LEqual (_T_0, 0x02))
+                                    ElseIf (LEqual (T_0, 0x02))
                                     {
                                         Return (SDGV)
                                     }
@@ -5437,13 +5445,13 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0)
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -5460,7 +5468,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                             })
                                         }
                                     }
-                                    ElseIf (LEqual (_T_0, One))
+                                    ElseIf (LEqual (T_0, One))
                                     {
                                         If (LEqual (SDGV, 0xFF))
                                         {
@@ -5471,7 +5479,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                             Return (One)
                                         }
                                     }
-                                    ElseIf (LEqual (_T_0, 0x02))
+                                    ElseIf (LEqual (T_0, 0x02))
                                     {
                                         Return (SDGV)
                                     }
@@ -5515,13 +5523,13 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0)
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -5538,7 +5546,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                             })
                                         }
                                     }
-                                    ElseIf (LEqual (_T_0, One))
+                                    ElseIf (LEqual (T_0, One))
                                     {
                                         If (LEqual (SDGV, 0xFF))
                                         {
@@ -5549,7 +5557,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                             Return (One)
                                         }
                                     }
-                                    ElseIf (LEqual (_T_0, 0x02))
+                                    ElseIf (LEqual (T_0, 0x02))
                                     {
                                         Return (SDGV)
                                     }
@@ -5593,13 +5601,13 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0)
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -5616,7 +5624,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                             })
                                         }
                                     }
-                                    ElseIf (LEqual (_T_0, One))
+                                    ElseIf (LEqual (T_0, One))
                                     {
                                         If (LEqual (SDGV, 0xFF))
                                         {
@@ -5627,7 +5635,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                             Return (One)
                                         }
                                     }
-                                    ElseIf (LEqual (_T_0, 0x02))
+                                    ElseIf (LEqual (T_0, 0x02))
                                     {
                                         Return (SDGV)
                                     }
@@ -5674,6 +5682,24 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 Return (GPRW (0x0D, 0x04))
+            }
+            Method (_DSM, 4, NotSerialized)
+            {
+                Store (Package (0x15) {
+                    "AAPL,slot-name", "Built In",
+                    "name", "Intel EHCI Controller",
+                    "model", Buffer(0x3E) {"Intel 8 Series Chipset Family USB Enhanced Host Controller #1"},
+                    "device_type", Buffer (0x0E) {"USB Controller"},
+                    "AAPL,current-available", 0x0834,
+                    "AAPL,current-extra", 0x0A8C,
+                    "AAPL,current-in-sleep", 0x03E8,
+                    "AAPL,current-extra-in-sleep", 0x0834,
+                    "AAPL,max-port-current-in-sleep", 0x0A8C,
+                    "AAPL,device-internal", 0x02,
+                    Buffer (One) {0x00}
+                }, Local0)
+                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                Return (Local0)
             }
         }
 
@@ -5805,13 +5831,13 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0)
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -5828,7 +5854,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                             })
                                         }
                                     }
-                                    ElseIf (LEqual (_T_0, One))
+                                    ElseIf (LEqual (T_0, One))
                                     {
                                         If (LEqual (SDGV, 0xFF))
                                         {
@@ -5839,7 +5865,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                             Return (One)
                                         }
                                     }
-                                    ElseIf (LEqual (_T_0, 0x02))
+                                    ElseIf (LEqual (T_0, 0x02))
                                     {
                                         Return (SDGV)
                                     }
@@ -5889,13 +5915,13 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
-                            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Arg2), _T_0)
-                                    If (LEqual (_T_0, Zero))
+                                    Store (ToInteger (Arg2), T_0)
+                                    If (LEqual (T_0, Zero))
                                     {
                                         If (LEqual (Arg1, One))
                                         {
@@ -5912,7 +5938,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                             })
                                         }
                                     }
-                                    ElseIf (LEqual (_T_0, One))
+                                    ElseIf (LEqual (T_0, One))
                                     {
                                         If (LEqual (SDGV, 0xFF))
                                         {
@@ -5923,7 +5949,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                             Return (One)
                                         }
                                     }
-                                    ElseIf (LEqual (_T_0, 0x02))
+                                    ElseIf (LEqual (T_0, 0x02))
                                     {
                                         Return (SDGV)
                                     }
@@ -6029,6 +6055,24 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
             {
                 Return (GPRW (0x0D, 0x04))
             }
+            Method (_DSM, 4, NotSerialized)
+            {
+                Store (Package (0x15) {
+                    "AAPL,slot-name", "Built In",
+                    "name", "Intel EHCI Controller",
+                    "model", Buffer (0x3E) {"Intel 8 Series Chipset Family USB Enhanced Host Controller #2"},
+                    "device_type", Buffer (0x0E) {"USB Controller"},
+                    "AAPL,current-available", 0x0834,
+                    "AAPL,current-extra", 0x0A8C,
+                    "AAPL,current-in-sleep", 0x03E8,
+                    "AAPL,current-extra-in-sleep", 0x0834,
+                    "AAPL,max-port-current-in-sleep", 0x0A8C,
+                    "AAPL,device-internal", 0x02,
+                    Buffer (One) {0x00}
+                }, Local0)
+                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                Return (Local0)
+            }
         }
 
         Device (XHC)
@@ -6045,7 +6089,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 }
                 Else
                 {
-                    Return (Package (0x00) {})
+                    Return (Package (Zero) {})
                 }
             }
 
@@ -6082,70 +6126,70 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
             Method (PR2S, 1, Serialized)
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (And (CDID, 0xF000), 0x8000))
                 {
                     While (One)
                     {
-                        Store (Arg0, _T_0)
-                        If (LEqual (_T_0, One))
+                        Store (Arg0, T_0)
+                        If (LEqual (T_0, One))
                         {
                             Return (One)
                         }
-                        ElseIf (LEqual (_T_0, 0x02))
+                        ElseIf (LEqual (T_0, 0x02))
                         {
                             Return (0x02)
                         }
-                        ElseIf (LEqual (_T_0, 0x03))
+                        ElseIf (LEqual (T_0, 0x03))
                         {
                             Return (0x04)
                         }
-                        ElseIf (LEqual (_T_0, 0x04))
+                        ElseIf (LEqual (T_0, 0x04))
                         {
                             Return (0x08)
                         }
-                        ElseIf (LEqual (_T_0, 0x05))
+                        ElseIf (LEqual (T_0, 0x05))
                         {
                             Return (0x0100)
                         }
-                        ElseIf (LEqual (_T_0, 0x06))
+                        ElseIf (LEqual (T_0, 0x06))
                         {
                             Return (0x0200)
                         }
-                        ElseIf (LEqual (_T_0, 0x07))
+                        ElseIf (LEqual (T_0, 0x07))
                         {
                             Return (0x0400)
                         }
-                        ElseIf (LEqual (_T_0, 0x08))
+                        ElseIf (LEqual (T_0, 0x08))
                         {
                             Return (0x0800)
                         }
-                        ElseIf (LEqual (_T_0, 0x09))
+                        ElseIf (LEqual (T_0, 0x09))
                         {
                             Return (0x10)
                         }
-                        ElseIf (LEqual (_T_0, 0x0A))
+                        ElseIf (LEqual (T_0, 0x0A))
                         {
                             Return (0x20)
                         }
-                        ElseIf (LEqual (_T_0, 0x0B))
+                        ElseIf (LEqual (T_0, 0x0B))
                         {
                             Return (0x1000)
                         }
-                        ElseIf (LEqual (_T_0, 0x0C))
+                        ElseIf (LEqual (T_0, 0x0C))
                         {
                             Return (0x2000)
                         }
-                        ElseIf (LEqual (_T_0, 0x0D))
+                        ElseIf (LEqual (T_0, 0x0D))
                         {
                             Return (0x40)
                         }
-                        ElseIf (LEqual (_T_0, 0x0E))
+                        ElseIf (LEqual (T_0, 0x0E))
                         {
                             Return (0x80)
                         }
-                        ElseIf (LEqual (_T_0, 0x0F))
+                        ElseIf (LEqual (T_0, 0x0F))
                         {
                             Return (0x4000)
                         }
@@ -6157,40 +6201,40 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 {
                     While (One)
                     {
-                        Store (Arg0, _T_1)
-                        If (LEqual (_T_1, One))
+                        Store (Arg0, T_1)
+                        If (LEqual (T_1, One))
                         {
                             Return (One)
                         }
-                        ElseIf (LEqual (_T_1, 0x02))
+                        ElseIf (LEqual (T_1, 0x02))
                         {
                             Return (0x02)
                         }
-                        ElseIf (LEqual (_T_1, 0x03))
+                        ElseIf (LEqual (T_1, 0x03))
                         {
                             Return (0x04)
                         }
-                        ElseIf (LEqual (_T_1, 0x04))
+                        ElseIf (LEqual (T_1, 0x04))
                         {
                             Return (0x08)
                         }
-                        ElseIf (LEqual (_T_1, 0x05))
+                        ElseIf (LEqual (T_1, 0x05))
                         {
                             Return (0x10)
                         }
-                        ElseIf (LEqual (_T_1, 0x06))
+                        ElseIf (LEqual (T_1, 0x06))
                         {
                             Return (0x20)
                         }
-                        ElseIf (LEqual (_T_1, 0x07))
+                        ElseIf (LEqual (T_1, 0x07))
                         {
                             Return (0x40)
                         }
-                        ElseIf (LEqual (_T_1, 0x08))
+                        ElseIf (LEqual (T_1, 0x08))
                         {
                             Return (0x80)
                         }
-                        ElseIf (LEqual (_T_1, 0x09))
+                        ElseIf (LEqual (T_1, 0x09))
                         {
                             Return (0x0100)
                         }
@@ -6198,6 +6242,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                         Break
                     }
                 }
+                Return (Zero)
             }
 
             Name (XRST, Zero)
@@ -6205,8 +6250,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
             {
                 If (LEqual (DVID, 0xFFFF))
                 {
-                    Return (Zero)
-                }
+                    }
 
                 Store (MEMB, Local2)
                 Store (PDBM, Local1)
@@ -6327,14 +6371,14 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 And (PDBM, 0xFFFFFFFFFFFFFFFD, PDBM)
                 Store (Local2, MEMB)
                 Store (Local1, PDBM)
+                Return (Zero)
             }
 
             Method (_PS3, 0, Serialized)  // _PS3: Power State 3
             {
                 If (LEqual (DVID, 0xFFFF))
                 {
-                    Return (Zero)
-                }
+                    }
 
                 Store (One, PMES)
                 Store (One, PMEE)
@@ -6393,6 +6437,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 And (PDBM, 0xFFFFFFFFFFFFFFFD, PDBM)
                 Store (Local2, MEMB)
                 Store (Local1, PDBM)
+                Return (Zero)
             }
 
             Method (CUID, 1, Serialized)
@@ -7543,6 +7588,24 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
             {
                 Return (GPRW (0x0D, 0x04))
             }
+            Method (_DSM, 4, NotSerialized)
+            {
+                Store (Package (0x15) {
+                    "AAPL,slot-name", "Built In",
+                    "name", "Intel XHCI Controller",
+                    "model", Buffer (0x37) {"Intel 8 Series Chipset Family USB xHCI Host Controller"},
+                    "device_type", Buffer (0x0E) {"USB Controller"},
+                    "AAPL,current-available", 0x0834,
+                    "AAPL,current-extra", 0x0A8C,
+                    "AAPL,current-in-sleep", 0x03E8,
+                    "AAPL,current-extra-in-sleep", 0x0834,
+                    "AAPL,max-port-current-in-sleep", 0x0A8C,
+                    "AAPL,device-internal", 0x02,
+                    Buffer (One) {0x00}
+                }, Local0)
+                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                Return (Local0)
+            }
         }
 
         Device (HDEF)
@@ -7569,19 +7632,19 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
             }
         }
 
-        Device (SAT0)
+        Device (SATA)
         {
             Name (_ADR, 0x001F0002)  // _ADR: Address
             Name (FDEV, Zero)
             Name (FDRP, Zero)
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
-                ADBG ("SAT0 DEP Call")
+                ADBG ("SATA DEP Call")
                 If (LGreaterEqual (OSYS, 0x07DD))
                 {
                     If (LAnd (LEqual (S0ID, One), LNotEqual (And (PEPC, 0x03), Zero)))
                     {
-                        ADBG ("SAT0 DEP")
+                        ADBG ("SATA DEP")
                         Return (Package (0x01)
                         {
                             PEPD
@@ -7589,8 +7652,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                     }
                 }
 
-                ADBG ("SAT0 DEP NULL")
-                Return (Package (0x00) {})
+                ADBG ("SATA DEP NULL")
+                Return (Package (Zero) {})
             }
 
             Device (PRT0)
@@ -7718,12 +7781,20 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                     Return (PIB2)
                 }
             }
+            Method (_DSM, 4, NotSerialized)
+            {
+                Store (Package (0x08) {
+                    "AAPL,slot-name", "Built In",
+                    "name", "Intel AHCI Controller",
+                    "model", Buffer (0x2D) {"Intel 8 Series Chipset Family SATA Controller"},
+                    "device_type", Buffer (0x0F) {"AHCI Controller"},
+                }, Local0)
+                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                Return (Local0)
+            }
         }
 
-        Device (SAT1)
-        {
-            Name (_ADR, 0x001F0005)  // _ADR: Address
-        }
+        
 
         Device (SBUS)
         {
@@ -8060,6 +8131,23 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 Or (HCON, 0x02, HCON)
                 Or (HSTS, 0xFF, HSTS)
             }
+            Device (BUS0)
+            {
+                Name (_CID, "smbus")
+                Name (_ADR, Zero)
+                Device (DVL0)
+                {
+                    Name (_ADR, 0x57)
+                    Name (_CID, "diagsvault")
+                    Method (_DSM, 4, NotSerialized)
+                    {
+                        Store (Package (0x02) {
+                            "address", 0x57			}, Local0)
+                        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                        Return (Local0)
+                    }
+                }
+            }
         }
     }
 
@@ -8205,40 +8293,40 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
     Method (UXDV, 1, Serialized)
     {
-        Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+        Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
         Store (0xFF, Local0)
         While (One)
         {
-            Store (Add (Arg0, Zero), _T_0)
-            If (LEqual (_T_0, 0x03F8))
+            Store (Add (Arg0, Zero), T_0)
+            If (LEqual (T_0, 0x03F8))
             {
                 Store (Zero, Local0)
             }
-            ElseIf (LEqual (_T_0, 0x02F8))
+            ElseIf (LEqual (T_0, 0x02F8))
             {
                 Store (One, Local0)
             }
-            ElseIf (LEqual (_T_0, 0x0220))
+            ElseIf (LEqual (T_0, 0x0220))
             {
                 Store (0x02, Local0)
             }
-            ElseIf (LEqual (_T_0, 0x0228))
+            ElseIf (LEqual (T_0, 0x0228))
             {
                 Store (0x03, Local0)
             }
-            ElseIf (LEqual (_T_0, 0x0238))
+            ElseIf (LEqual (T_0, 0x0238))
             {
                 Store (0x04, Local0)
             }
-            ElseIf (LEqual (_T_0, 0x02E8))
+            ElseIf (LEqual (T_0, 0x02E8))
             {
                 Store (0x05, Local0)
             }
-            ElseIf (LEqual (_T_0, 0x0338))
+            ElseIf (LEqual (T_0, 0x0338))
             {
                 Store (0x06, Local0)
             }
-            ElseIf (LEqual (_T_0, 0x03E8))
+            ElseIf (LEqual (T_0, 0x03E8))
             {
                 Store (0x07, Local0)
             }
@@ -8251,11 +8339,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
     Method (RRIO, 4, Serialized)
     {
-        Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+        Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
         While (One)
         {
-            Store (Add (Arg0, Zero), _T_0)
-            If (LEqual (_T_0, Zero))
+            Store (Add (Arg0, Zero), T_0)
+            If (LEqual (T_0, Zero))
             {
                 Store (Zero, CALE)
                 Store (UXDV (Arg2), Local0)
@@ -8269,7 +8357,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                     Store (One, CALE)
                 }
             }
-            ElseIf (LEqual (_T_0, One))
+            ElseIf (LEqual (T_0, One))
             {
                 Store (Zero, CBLE)
                 Store (UXDV (Arg2), Local0)
@@ -8283,7 +8371,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                     Store (One, CBLE)
                 }
             }
-            ElseIf (LEqual (_T_0, 0x02))
+            ElseIf (LEqual (T_0, 0x02))
             {
                 Store (Zero, LTLE)
                 If (LEqual (Arg2, 0x0378))
@@ -8306,7 +8394,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                     Store (One, LTLE)
                 }
             }
-            ElseIf (LEqual (_T_0, 0x03))
+            ElseIf (LEqual (T_0, 0x03))
             {
                 Store (Zero, FDLE)
                 If (LEqual (Arg2, 0x03F0))
@@ -8324,7 +8412,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                     Store (One, FDLE)
                 }
             }
-            ElseIf (LEqual (_T_0, 0x08))
+            ElseIf (LEqual (T_0, 0x08))
             {
                 If (LEqual (Arg2, 0x0200))
                 {
@@ -8350,7 +8438,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                     }
                 }
             }
-            ElseIf (LEqual (_T_0, 0x09))
+            ElseIf (LEqual (T_0, 0x09))
             {
                 If (LEqual (Arg2, 0x0200))
                 {
@@ -8376,7 +8464,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                     }
                 }
             }
-            ElseIf (LEqual (_T_0, 0x0A))
+            ElseIf (LEqual (T_0, 0x0A))
             {
                 If (LOr (LEqual (Arg2, 0x60), LEqual (Arg2, 0x64)))
                 {
@@ -8390,7 +8478,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                     }
                 }
             }
-            ElseIf (LEqual (_T_0, 0x0B))
+            ElseIf (LEqual (T_0, 0x0B))
             {
                 If (LOr (LEqual (Arg2, 0x62), LEqual (Arg2, 0x66)))
                 {
@@ -8404,7 +8492,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                     }
                 }
             }
-            ElseIf (LEqual (_T_0, 0x0C))
+            ElseIf (LEqual (T_0, 0x0C))
             {
                 If (LEqual (Arg2, 0x2E))
                 {
@@ -8430,7 +8518,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                     }
                 }
             }
-            ElseIf (LEqual (_T_0, 0x0D))
+            ElseIf (LEqual (T_0, 0x0D))
             {
                 If (LEqual (Arg2, 0x2E))
                 {
@@ -8533,7 +8621,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 Else
                 {
                     ADBG ("CPU0 DEP NULL")
-                    Return (Package (0x00) {})
+                    Return (Package (Zero) {})
                 }
             }
         }
@@ -8554,7 +8642,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 Else
                 {
                     ADBG ("CPU1 DEP NULL")
-                    Return (Package (0x00) {})
+                    Return (Package (Zero) {})
                 }
             }
         }
@@ -8575,7 +8663,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 Else
                 {
                     ADBG ("CPU2 DEP NULL")
-                    Return (Package (0x00) {})
+                    Return (Package (Zero) {})
                 }
             }
         }
@@ -8596,7 +8684,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 Else
                 {
                     ADBG ("CPU3 DEP NULL")
-                    Return (Package (0x00) {})
+                    Return (Package (Zero) {})
                 }
             }
         }
@@ -8617,7 +8705,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 Else
                 {
                     ADBG ("CPU4 DEP NULL")
-                    Return (Package (0x00) {})
+                    Return (Package (Zero) {})
                 }
             }
         }
@@ -8638,7 +8726,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 Else
                 {
                     ADBG ("CPU5 DEP NULL")
-                    Return (Package (0x00) {})
+                    Return (Package (Zero) {})
                 }
             }
         }
@@ -8659,7 +8747,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 Else
                 {
                     ADBG ("CPU6 DEP NULL")
-                    Return (Package (0x00) {})
+                    Return (Package (Zero) {})
                 }
             }
         }
@@ -8680,7 +8768,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 Else
                 {
                     ADBG ("CPU7 DEP NULL")
-                    Return (Package (0x00) {})
+                    Return (Package (Zero) {})
                 }
             }
         }
@@ -9270,7 +9358,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
         Name (PPUU, Zero)
         If (LEqual (CSEM, One))
         {
-            Return (Zero)
+            
         }
 
         Store (One, CSEM)
@@ -9291,6 +9379,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
         Store (Local1, PPL1)
         Store (One, PL1E)
         Store (One, CLP1)
+        Return (Zero)
     }
 
     Method (RPL1, 0, Serialized)
@@ -9442,8 +9531,12 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 {
                     Store (0x03E8, OSYS)
                 }
+						If (_OSI ("Darwin"))
+						{
+							Store (0x2710, OSYS)
+						}
 
-                If (_OSI ("Windows 2001"))
+						If (_OSI ("Windows 2001"))
                 {
                     Store (0x07D1, OSYS)
                 }
@@ -9610,7 +9703,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
                 Package (0x01)
                 {
-                    "\\_SB.PCI0.SAT0.PRT1"
+                    "\\_SB.PCI0.SATA.PRT1"
                 }
             })
             Name (DEVX, Package (0x08)
@@ -9623,7 +9716,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT1", 
+                    "\\_SB.PCI0.SATA.PRT1", 
                     0xFFFFFFFF
                 }, 
 
@@ -9742,7 +9835,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0", 
+                    "\\_SB.PCI0.SATA", 
                     One, 
                     Package (0x02)
                     {
@@ -9757,7 +9850,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT0", 
+                    "\\_SB.PCI0.SATA.PRT0", 
                     One, 
                     Package (0x02)
                     {
@@ -9773,7 +9866,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT1", 
+                    "\\_SB.PCI0.SATA.PRT1", 
                     One, 
                     Package (0x02)
                     {
@@ -9789,7 +9882,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT2", 
+                    "\\_SB.PCI0.SATA.PRT2", 
                     One, 
                     Package (0x02)
                     {
@@ -9805,7 +9898,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT3", 
+                    "\\_SB.PCI0.SATA.PRT3", 
                     One, 
                     Package (0x02)
                     {
@@ -9955,7 +10048,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
             {
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0", 
+                    "\\_SB.PCI0.SATA", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -9983,7 +10076,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT0", 
+                    "\\_SB.PCI0.SATA.PRT0", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -10011,7 +10104,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT1", 
+                    "\\_SB.PCI0.SATA.PRT1", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -10039,7 +10132,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT2", 
+                    "\\_SB.PCI0.SATA.PRT2", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -10067,7 +10160,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT3", 
+                    "\\_SB.PCI0.SATA.PRT3", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -10111,7 +10204,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (Arg0, ToUUID ("b8febfe0-baf8-454b-aecd-49fb91137b21")))
                 {
                     If (LEqual (Arg2, Zero))
@@ -10134,8 +10227,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                         {
                             While (One)
                             {
-                                Store (PEPY, _T_0)
-                                If (LEqual (_T_0, One))
+                                Store (PEPY, T_0)
+                                If (LEqual (T_0, One))
                                 {
                                     Return (Package (0x02)
                                     {
@@ -10146,18 +10239,18 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                                         }
                                     })
                                 }
-                                ElseIf (LEqual (_T_0, 0x02))
+                                ElseIf (LEqual (T_0, 0x02))
                                 {
                                     Return (Package (0x02)
                                     {
                                         One, 
                                         Package (0x01)
                                         {
-                                            "\\_SB.PCI0.SAT0.PRT1"
+                                            "\\_SB.PCI0.SATA.PRT1"
                                         }
                                     })
                                 }
-                                ElseIf (LEqual (_T_0, 0x03))
+                                ElseIf (LEqual (T_0, 0x03))
                                 {
                                     Return (DEVS)
                                 }
@@ -11208,44 +11301,44 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
             Method (WMBC, 3, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (One, Local0)
                 While (One)
                 {
-                    Store (Arg1, _T_0)
-                    If (LEqual (_T_0, 0x43455053))
+                    Store (Arg1, T_0)
+                    If (LEqual (T_0, 0x43455053))
                     {
                         Return (SPEC (Arg2))
                     }
-                    ElseIf (LEqual (_T_0, 0x50564544))
+                    ElseIf (LEqual (T_0, 0x50564544))
                     {
                         Return (DEVP (Arg2))
                     }
-                    ElseIf (LEqual (_T_0, 0x50534453))
+                    ElseIf (LEqual (T_0, 0x50534453))
                     {
                         Return (SDSP (Arg2))
                     }
-                    ElseIf (LEqual (_T_0, 0x50534447))
+                    ElseIf (LEqual (T_0, 0x50534447))
                     {
                         Return (GDSP (Arg2))
                     }
-                    ElseIf (LEqual (_T_0, 0x53564544))
+                    ElseIf (LEqual (T_0, 0x53564544))
                     {
                         Return (DEVS (Arg2))
                     }
-                    ElseIf (LEqual (_T_0, 0x53544344))
+                    ElseIf (LEqual (T_0, 0x53544344))
                     {
                         Return (DSTS (Arg2))
                     }
-                    ElseIf (LEqual (_T_0, 0x44495047))
+                    ElseIf (LEqual (T_0, 0x44495047))
                     {
                         Return (GPID ())
                     }
-                    ElseIf (LEqual (_T_0, 0x5446424B))
+                    ElseIf (LEqual (T_0, 0x5446424B))
                     {
                         Return (KBFT (Arg2))
                     }
-                    ElseIf (LEqual (_T_0, 0x59454B48))
+                    ElseIf (LEqual (T_0, 0x59454B48))
                     {
                         Return (HKEY ())
                     }
@@ -11292,32 +11385,32 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
             Method (WMBD, 3, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (One, Local0)
                 While (One)
                 {
-                    Store (Arg1, _T_0)
-                    If (LEqual (_T_0, 0x424D5352))
+                    Store (Arg1, T_0)
+                    If (LEqual (T_0, 0x424D5352))
                     {
                         Return (RSMB (Arg2))
                     }
-                    ElseIf (LEqual (_T_0, 0x424D5357))
+                    ElseIf (LEqual (T_0, 0x424D5357))
                     {
                         Return (WSMB (Arg2))
                     }
-                    ElseIf (LEqual (_T_0, 0x574D5352))
+                    ElseIf (LEqual (T_0, 0x574D5352))
                     {
                         Return (RSMW (Arg2))
                     }
-                    ElseIf (LEqual (_T_0, 0x574D5357))
+                    ElseIf (LEqual (T_0, 0x574D5357))
                     {
                         Return (WSMW (Arg2))
                     }
-                    ElseIf (LEqual (_T_0, 0x4B4D5352))
+                    ElseIf (LEqual (T_0, 0x4B4D5352))
                     {
                         Return (RSMK (Arg2))
                     }
-                    ElseIf (LEqual (_T_0, 0x4B4D5357))
+                    ElseIf (LEqual (T_0, 0x4B4D5357))
                     {
                         Return (WSMK (Arg2))
                     }
@@ -11683,92 +11776,92 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
             Method (DEVP, 1, Serialized)
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 CreateDWordField (Arg0, Zero, DVID)
                 CreateDWordField (Arg0, 0x04, PARA)
                 If (LEqual (PARA, One))
                 {
                     While (One)
                     {
-                        Store (DVID, _T_0)
-                        If (LEqual (_T_0, 0x00010011))
+                        Store (DVID, T_0)
+                        If (LEqual (T_0, 0x00010011))
                         {
                             Or (\_SB.DSAF, One, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00010013))
+                        ElseIf (LEqual (T_0, 0x00010013))
                         {
                             Or (\_SB.DSAF, 0x02, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00010023))
+                        ElseIf (LEqual (T_0, 0x00010023))
                         {
                             Or (\_SB.DSAF, 0x04, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00060013))
+                        ElseIf (LEqual (T_0, 0x00060013))
                         {
                             Or (\_SB.DSAF, 0x08, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00060015))
+                        ElseIf (LEqual (T_0, 0x00060015))
                         {
                             Or (\_SB.DSAF, 0x10, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00010015))
+                        ElseIf (LEqual (T_0, 0x00010015))
                         {
                             Or (\_SB.DSAF, 0x20, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00090011))
+                        ElseIf (LEqual (T_0, 0x00090011))
                         {
                             Or (\_SB.DSAF, 0x40, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00070011))
+                        ElseIf (LEqual (T_0, 0x00070011))
                         {
                             Or (\_SB.DSAF, 0x80, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00080013))
+                        ElseIf (LEqual (T_0, 0x00080013))
                         {
                             Or (\_SB.DSAF, 0x0100, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00010019))
+                        ElseIf (LEqual (T_0, 0x00010019))
                         {
                             Or (\_SB.DSAF, 0x0200, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00010017))
+                        ElseIf (LEqual (T_0, 0x00010017))
                         {
                             Or (\_SB.DSAF, 0x0400, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00050011))
+                        ElseIf (LEqual (T_0, 0x00050011))
                         {
                             Or (\_SB.DSAF, 0x0800, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00050012))
+                        ElseIf (LEqual (T_0, 0x00050012))
                         {
                             Or (\_SB.DSAF, 0x1000, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00060017))
+                        ElseIf (LEqual (T_0, 0x00060017))
                         {
                             Or (\_SB.DSAF, 0x2000, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00080021))
+                        ElseIf (LEqual (T_0, 0x00080021))
                         {
                             Or (\_SB.DSAF, 0x4000, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00100011))
+                        ElseIf (LEqual (T_0, 0x00100011))
                         {
                             Or (\_SB.DSAF, 0x8000, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00050001))
+                        ElseIf (LEqual (T_0, 0x00050001))
                         {
                             Or (\_SB.DSAF, 0x00010000, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00120000))
+                        ElseIf (LEqual (T_0, 0x00120000))
                         {
                             Or (\_SB.DSAF, 0x00020000, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00120021))
+                        ElseIf (LEqual (T_0, 0x00120021))
                         {
                             Or (\_SB.DSAF, 0x00040000, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_0, 0x00120011))
+                        ElseIf (LEqual (T_0, 0x00120011))
                         {
                             Or (\_SB.DSAF, 0x00080000, \_SB.DSAF)
                         }
@@ -11784,84 +11877,84 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                 {
                     While (One)
                     {
-                        Store (DVID, _T_1)
-                        If (LEqual (_T_1, 0x00010011))
+                        Store (DVID, T_1)
+                        If (LEqual (T_1, 0x00010011))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFFFFE, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00010013))
+                        ElseIf (LEqual (T_1, 0x00010013))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFFFFD, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00010023))
+                        ElseIf (LEqual (T_1, 0x00010023))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFFFFB, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00060013))
+                        ElseIf (LEqual (T_1, 0x00060013))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFFFF7, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00060015))
+                        ElseIf (LEqual (T_1, 0x00060015))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFFFEF, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00010015))
+                        ElseIf (LEqual (T_1, 0x00010015))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFFFDF, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00090011))
+                        ElseIf (LEqual (T_1, 0x00090011))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFFFBF, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00070011))
+                        ElseIf (LEqual (T_1, 0x00070011))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFFF7F, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00080013))
+                        ElseIf (LEqual (T_1, 0x00080013))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFFEFF, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00010019))
+                        ElseIf (LEqual (T_1, 0x00010019))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFFDFF, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00010017))
+                        ElseIf (LEqual (T_1, 0x00010017))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFFBFF, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00050011))
+                        ElseIf (LEqual (T_1, 0x00050011))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFF7FF, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00050012))
+                        ElseIf (LEqual (T_1, 0x00050012))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFEFFF, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00060017))
+                        ElseIf (LEqual (T_1, 0x00060017))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFDFFF, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00080021))
+                        ElseIf (LEqual (T_1, 0x00080021))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFFBFFF, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00100011))
+                        ElseIf (LEqual (T_1, 0x00100011))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFF7FFF, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00050001))
+                        ElseIf (LEqual (T_1, 0x00050001))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFEFFFF, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00120000))
+                        ElseIf (LEqual (T_1, 0x00120000))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFDFFFF, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00120021))
+                        ElseIf (LEqual (T_1, 0x00120021))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFFBFFFF, \_SB.DSAF)
                         }
-                        ElseIf (LEqual (_T_1, 0x00120011))
+                        ElseIf (LEqual (T_1, 0x00120011))
                         {
                             And (\_SB.DSAF, 0xFFFFFFFFFFF7FFFF, \_SB.DSAF)
                         }
@@ -11891,13 +11984,13 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
             Method (DEVS, 1, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 CreateDWordField (Arg0, Zero, DVID)
                 CreateDWordField (Arg0, 0x04, CPAR)
                 While (One)
                 {
-                    Store (DVID, _T_0)
-                    If (LEqual (_T_0, Zero))
+                    Store (DVID, T_0)
+                    If (LEqual (T_0, Zero))
                     {
                         Return (Zero)
                     }
@@ -11912,24 +12005,24 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
             Method (DSTS, 1, Serialized)
             {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 CreateDWordField (Arg0, Zero, DVID)
                 While (One)
                 {
-                    Store (DVID, _T_0)
-                    If (LEqual (_T_0, 0xA0000000))
+                    Store (DVID, T_0)
+                    If (LEqual (T_0, 0xA0000000))
                     {
                         Store (One, Local0)
                     }
-                    ElseIf (LEqual (_T_0, 0xA0000030))
+                    ElseIf (LEqual (T_0, 0xA0000030))
                     {
                         \_SB.SIRS ()
                     }
-                    ElseIf (LEqual (_T_0, 0xA0000040))
+                    ElseIf (LEqual (T_0, 0xA0000040))
                     {
                         \_SB.SRAD ()
                     }
-                    ElseIf (LEqual (_T_0, Zero))
+                    ElseIf (LEqual (T_0, Zero))
                     {
                         Return (Zero)
                     }
@@ -12118,6 +12211,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
             {
                 Return (0x0201D824)
             }
+            Return (Zero)
         }
 
         Name (_CID, EisaId ("PNP0C31"))  // _CID: Compatible ID
@@ -12172,25 +12266,25 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
         Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+            Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (LEqual (Arg0, ToUUID ("3dddfaa6-361b-4eb4-a424-8d10089d1653") /* Physical Presence Interface */))
             {
                 While (One)
                 {
-                    Store (ToInteger (Arg2), _T_0)
-                    If (LEqual (_T_0, Zero))
+                    Store (ToInteger (Arg2), T_0)
+                    If (LEqual (T_0, Zero))
                     {
                         Return (Buffer (0x02)
                         {
                              0xFF, 0x01                                     
                         })
                     }
-                    ElseIf (LEqual (_T_0, One))
+                    ElseIf (LEqual (T_0, One))
                     {
                         Return ("1.2")
                     }
-                    ElseIf (LEqual (_T_0, 0x02))
+                    ElseIf (LEqual (T_0, 0x02))
                     {
                         ToInteger (DerefOf (Index (Arg3, Zero)), TMF2)
                         Store (0x12, TMF1)
@@ -12215,7 +12309,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
                         Return (Zero)
                     }
-                    ElseIf (LEqual (_T_0, 0x03))
+                    ElseIf (LEqual (T_0, 0x03))
                     {
                         Name (PPI1, Package (0x02)
                         {
@@ -12232,11 +12326,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
                         Store (DAT, Index (PPI1, One))
                         Return (PPI1)
                     }
-                    ElseIf (LEqual (_T_0, 0x04))
+                    ElseIf (LEqual (T_0, 0x04))
                     {
                         Return (TRST)
                     }
-                    ElseIf (LEqual (_T_0, 0x05))
+                    ElseIf (LEqual (T_0, 0x05))
                     {
                         Name (PPI2, Package (0x03)
                         {
@@ -12286,11 +12380,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
                         Return (PPI2)
                     }
-                    ElseIf (LEqual (_T_0, 0x06))
+                    ElseIf (LEqual (T_0, 0x06))
                     {
                         Return (0x03)
                     }
-                    ElseIf (LEqual (_T_0, 0x07))
+                    ElseIf (LEqual (T_0, 0x07))
                     {
                         ToInteger (DerefOf (Index (Arg3, Zero)), TMF2)
                         Store (0x12, TMF1)
@@ -12315,7 +12409,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
                         Return (Zero)
                     }
-                    ElseIf (LEqual (_T_0, 0x08))
+                    ElseIf (LEqual (T_0, 0x08))
                     {
                         ToInteger (DerefOf (Index (Arg3, Zero)), TMF2)
                         Store (0x43, TMF1)
@@ -12336,15 +12430,15 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
             {
                 While (One)
                 {
-                    Store (ToInteger (Arg2), _T_1)
-                    If (LEqual (_T_1, Zero))
+                    Store (ToInteger (Arg2), T_1)
+                    If (LEqual (T_1, Zero))
                     {
                         Return (Buffer (One)
                         {
                              0x03                                           
                         })
                     }
-                    ElseIf (LEqual (_T_1, One))
+                    ElseIf (LEqual (T_1, One))
                     {
                         Store (0x22, TMF1)
                         Store (TMF1, DAT)
@@ -12616,6 +12710,30 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000031)
 
     Method (PINI, 0, NotSerialized)
     {
+    }
+    Method (DTGP, 5, NotSerialized)
+    {
+        If (LEqual (Arg0, Buffer (0x10)
+        {
+            /* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44,
+            /* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B
+        }))
+        {
+            If (LEqual (Arg1, One))
+            {
+                If (LEqual (Arg2, Zero))
+                {
+                    Store (Buffer (One) { 0x03 }, Arg4)
+                    Return (One)
+                }
+                If (LEqual (Arg2, One))
+                {
+                    Return (One)
+                }
+            }
+        }
+        Store (Buffer (One) { 0x00 }, Arg4)
+        Return (Zero)
     }
 }
 
