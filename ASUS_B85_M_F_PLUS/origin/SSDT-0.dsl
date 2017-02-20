@@ -83,7 +83,7 @@ DefinitionBlock ("", "SSDT", 1, "PmRef", "Cpu0Ist", 0x00003000)
                 0x00002500, 
                 0x00002500
             }
-        })
+        }
         Package (0x06)
         {
             0x80000000, 
